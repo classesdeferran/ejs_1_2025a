@@ -20,7 +20,11 @@ app.get("/", (req, res) => {
 });
 
 app.get("/cursos", (req, res) => {
-    res.render("cursos")
+    res.render("cursos", {"title": "Cursos EJS", "h1": "Título desde EJS"})
+})
+
+app.use((req, res) => {
+    res.status(404).render("404", {"title": "error 404"})
 })
 
 app.listen(PORT, () => {
